@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.zosh</groupId>
-	<artifactId>blobby</artifactId>
+	<artifactId>blobby1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>e-commerce</name>
 	<description>Implement Authentication Using spring Security and Jwt</description>

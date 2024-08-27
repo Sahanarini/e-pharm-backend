@@ -15,14 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sahana.config.JwtTokenProvider;
 import com.sahana.exception.UserException;
-import com.sahana.modal.Cart;
 import com.sahana.modal.User;
 import com.sahana.repository.UserRepository;
 import com.sahana.request.LoginRequest;
 import com.sahana.response.AuthResponse;
 import com.sahana.service.CartService;
 import com.sahana.service.CustomUserDetails;
-import com.sahana.user.domain.UserRole;
 
 import jakarta.validation.Valid;
 

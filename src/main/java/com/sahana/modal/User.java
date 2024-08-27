@@ -1,10 +1,10 @@
 package com.sahana.modal;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sahana.user.domain.UserRole;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,45 +18,43 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(name = "first_name")
-    private String firstName;
-    
-    @Column(name = "last_name")
-    private String lastName;
+	@Column(name = "first_name")
+	private String firstName;
 
-    @Column(name = "password")
-    private String password;
+	@Column(name = "last_name")
+	private String lastName;
 
-    @Column(name = "email")
-    private String email;
+	@Column(name = "password")
+	private String password;
 
-//    @Enumerated(EnumType.STRING)
-    private String role;
-    
-    private String mobile;
+	@Column(name = "email")
+	private String email;
 
-    
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Address> addresses=new ArrayList<>();
+	private String role;
 
-    @Embedded
-    @ElementCollection
-    @CollectionTable(name="payment_information",joinColumns = @JoinColumn(name="user_id"))
-    private List<PaymentInformation> paymentInformation=new ArrayList<>();
+	private String mobile;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Rating>ratings=new ArrayList<>();
-    
-    @JsonIgnore
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Review>reviews=new ArrayList<>();
-    
-    private LocalDateTime createdAt;
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Address> addresses = new ArrayList<>();
+
+	@Embedded
+	@ElementCollection
+	@CollectionTable(name = "payment_information", joinColumns = @JoinColumn(name = "user_id"))
+	private List<PaymentInformation> paymentInformation = new ArrayList<>();
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Rating> ratings = new ArrayList<>();
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Review> reviews = new ArrayList<>();
+
+	private LocalDateTime createdAt;
 
 	public Long getId() {
 		return id;
@@ -153,8 +151,5 @@ public class User {
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
-    
-    
 
-    
 }
